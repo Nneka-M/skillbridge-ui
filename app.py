@@ -512,5 +512,14 @@ with gr.Blocks(css=CSS, title="SkillBridge — Resume Analyzer") as demo:
     )
 
 
+
+
 if __name__ == "__main__":
-    demo.launch(show_error=True)
+    import os
+    # Get the PORT environment variable injected by Railway (default to 7860 if missing)
+    port = int(os.environ.get("PORT", 7860))
+    
+    demo.launch(
+        server_name="0.0.0.0",  # Crucial for cloud platforms like Railway/Render
+        server_port=port
+    )
